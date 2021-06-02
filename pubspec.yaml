@@ -1,8 +1,7 @@
 name: riskified
 description: Flutter plugin for Riskified SDK
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/appunite/flutter_riskified
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
