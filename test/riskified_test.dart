@@ -9,7 +9,9 @@ void main() {
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      if (methodCall.method == 'startBeacon') {
+        return methodCall.arguments['token'];
+      }
     });
   });
 
@@ -17,7 +19,7 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await Riskified.platformVersion, '42');
+  test('startBeacon', () async {
+    expect(await Riskified.startBeacon('shop', 'token'), 'token');
   });
 }
